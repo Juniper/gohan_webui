@@ -197,9 +197,13 @@ export default class SchemaModel extends Model {
         }
 
         options.headers = {
-          'X-Auth-Token': userModel.authToken(),
-          'Content-Type': 'application/json'
+          'X-Auth-Token': userModel.authToken()
         };
+
+        if( method == 'update' || method == 'create' ){
+          options.headers['Content-Type'] = 'application/json';
+        }
+
         this.unset('isNew');
 
         const data = {};
@@ -625,8 +629,10 @@ export default class SchemaModel extends Model {
       sync(method, collection, options = {}) {
         options.headers = {
           'X-Auth-Token': userModel.authToken(),
-          'Content-Type': 'application/json'
         };
+        if( method == 'create' || method == 'update' ){
+          options.headers['Content-Type'] = 'application/json';
+        }
         super.sync(method, collection, options);
       }
     }

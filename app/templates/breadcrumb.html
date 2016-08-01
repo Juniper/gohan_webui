@@ -2,7 +2,7 @@
     <div id="breadcrumbs" class="fixed">
         <div class="col-sm-8 title"><ul class="breadcrumb">
             <% _.each(parents, function iterator(parent, key) { %>
-            <% if (key === 0) { %><li><a href="#<%- parent.schemaFragment %>">Configure</a></li> ><% } %>
+            <% if (key === 0) { %><li><a href="#<%- parent.schemaFragment %>">Configure</a></li> <span class="divider"><i class="fa fa-angle-right"></i></span><% } %>
             <% if (key !== 0) { %> > <% } %>
             <li><a href="#<%- parent.schemaFragment %>"><%- parent.schemaTitle %></a></li>
             <% if (parent.title) { %>

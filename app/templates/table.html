@@ -2,6 +2,7 @@
 <div class="container-fluid table_search grid-header">
   <div >
     <div class="col-xs-6 resource_name">
+      
       <h4 style="margin-left:-15px"; class="modal-header-title grid-header-text smaller blue"><%- schema.title %></h4>
      </div>
     <div class="col-xs-6 func">
@@ -115,13 +116,14 @@
     </tbody>
   </table>
 </div>
-
-<% if (pageCount > 1) { %>
-<nav data-gohan="pagination">
+<div class="grid-footer gohan-footer">
+<% if (pageCount === 0) { %> <div class="grid-load-status">No <%- schema.title %> Found</div><% }%>
+<% if (pageCount >1) { %> 
+<nav data-gohan="pagination" class="pull-right">
   <ul class="pagination pagination-sm">
     <li <% if (activePage === 1) { %> class="disabled" <% }%>>
       <a data-id="prev" aria-label="Previous">
-        <span aria-hidden="true">&laquo;</span>
+        <span class="pager-control"> <i class="fa fa-backward fa-disabled pager-control-prev"></i></span>
       </a>
     </li>
     <% if(pagination.start !== 1) { %>
@@ -133,17 +135,18 @@
       <li ><a data-id="<%= key %>" data-more="right"><%= key + '...' + pageCount %></a></li>
       <% } else {
         %>
-      <li <% if (key === activePage) { %> class="active" <% }%>><a data-id="<%= key %>"><%= key %></a></li>
+      <li <% if (key === activePage) { %> class="active" <% }%>><a data-id="<%= key %>">Page <%= key %></a></li>
         <%
       }
     } %>
     <li <% if (activePage === pageCount) { %> class="disabled" <% }%>>
       <a data-id="next" aria-label="Next">
-        <span aria-hidden="true">&raquo;</span>
+        <span class="pager-control"> <i class="fa fa-forward fa-disabled pager-control-prev"></i></span>
       </a>
     </li>
   </ul>
 </nav>
 <% } %>
+</div>
 
 

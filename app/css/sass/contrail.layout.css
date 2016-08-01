@@ -2662,3 +2662,49 @@ a.close{
 .bootstrap-dialog.type-primary .modal-header {
     background-color: transparent;
 }
+
+.grid-footer.gohan-footer {
+    width: 100%;
+    border-top: 1px solid #dadada;
+    margin-top: -2px;
+    font-size: 11px;
+}
+[data-gohan="pagination"] .pagination{
+    margin:0px!important;}
+[data-gohan="pagination"] .pagination > li > a, .pagination > li > span{
+    border:none; background:transparent;
+}
+
+[data-gohan="pagination"] .pagination-sm > li > a,[data-gohan="pagination"] .pagination-sm > li > span{
+    padding:2px 10px;}
+[data-gohan="pagination"] .slick-pager-info{
+    padding:3px;
+}
+[data-gohan="pagination"] .fa-disabled{
+    color: #ccc;}
+.gohan-table > thead > tr > th{
+    border-width:1px;}
+.grid-footer.gohan-footer{
+    margin-top:0px;
+}
+[data-gohan="pagination"] .pagination-sm > li > a,[data-gohan="pagination"] .pagination-sm > li > span,[data-gohan="pagination"] .pagination-sm > li >a i{
+    font-size:11px;
+}
+.grid-load-status{
+    float:left;
+    padding:5px;
+    border-bottom:1px solid #dadada;
+    background:white;
+    font-size:13px;
+    width:100%;
+    color:#777777;
+}
+.breadcrumb .fa-angle-right {
+    height: 22px;
+    padding: 0;
+    margin: 0;
+    position: relative;
+    top: 1px;
+    font-size: 14px;
+    color: #b2b6bf;
+}

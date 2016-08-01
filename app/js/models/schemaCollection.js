@@ -73,8 +73,10 @@ export default class SchemaCollection extends Collection {
   sync(method, collection, options = {}) {
     options.headers = {
       'X-Auth-Token': this.userModel.authToken(),
-      'Content-Type': 'application/json'
     };
+    if( method == 'update' || method == 'create' ) {
+        options.headers['Content-Type'] = 'application/json';
+    }
     super.sync(method, collection, options);
   }
 }

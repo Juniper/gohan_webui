@@ -50,13 +50,10 @@ function toLocalSchema(schema, state, parentProperty) {
 
       axios.get(state.configReducer.gohan.url + relatedSchema.url, {headers}).then(response => {
         const data = response.data;
-
-        for (let key in data) {
-          data[key].forEach(value => {
+        data.forEach(value => {
             enumValues.push(value.id);
             options[value.id] = value.name;
-          });
-        }
+        });
         result.enum = enumValues;
         result.options = options;
         resolve(result);

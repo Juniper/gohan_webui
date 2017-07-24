@@ -32,7 +32,7 @@ export const fetch = (action$, store, call = (fn, ...args) => fn(...args)) => ac
         };
 
         return call(get, `${gohanUrl}${url}`, headers)
-          .map(response => fetchSuccess(response.response[Object.keys(response.response)[0]]))
+          .map(response => fetchSuccess(response.response))
           .catch(error => {
             console.error(error);
             return Observable.of(fetchError(parseXHRError(error)));

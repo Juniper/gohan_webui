@@ -96,7 +96,9 @@ export function fetchData(plural) {
 
       if (status === 200) {
         const totalCount = headers['x-total-count'];
-        dispatch(fetchSuccess(data, {totalCount}));
+        const result = {};
+        result[plural] = data;
+        dispatch(fetchSuccess(result, {totalCount}));
       } else {
         dispatch(fetchError({error: 'Cannot fetch data!'}));
       }

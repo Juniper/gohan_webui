@@ -50,7 +50,16 @@ export const getTableView = (TableComponent = Table) => {
         buttonDeleteSelectedDisabled: true
       };
     }
-
+    shouldComponentUpdate(nextProps, nextState) {
+      return (
+        this.props.tableReducer !== nextProps.tableReducer ||
+        this.state.markedForDeletion !== nextState.markedForDeletion ||
+        this.state.checkedAll !== nextState.checkedAll ||
+        this.state.checkedRowsIds !== nextState.checkedRowsIds ||
+        this.state.buttonDeleteSelectedDisabled !== nextState.buttonDeleteSelectedDisabled ||
+        this.state.alertDeleteSelectedOpen !== nextState.alertDeleteSelectedOpen
+      );
+    }
     componentWillReceiveProps(nextProps) {
       if (nextProps.tableReducer.deletedMultipleResources === true &&
         nextProps.tableReducer.deletedMultipleResources !== this.props.tableReducer.deletedMultipleResources) {

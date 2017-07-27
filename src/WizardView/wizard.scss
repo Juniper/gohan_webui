@@ -1,0 +1,33 @@
+.wizard-footer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.wizard-header {
+  &.pt-tabs {
+    padding: 1em;
+    margin-bottom: 1em;
+  }
+
+  .header-icon {
+    background: #137cbd;
+    height: 35px;
+    width: 35px;
+  }
+
+  .help-icon {
+    background: grey;
+    height: 15px;
+    width: 15px;
+  }
+
+  .header-cell-container{
+    &.disabled {
+      opacity: 0.3;
+    }
+  }
+
+  .spacer{
+    margin-left: 0.5em;
+  }
+}

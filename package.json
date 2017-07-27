@@ -110,6 +110,7 @@
     "@blueprintjs/core": "^1.11.0",
     "ajv": "^5.0.2-beta.0",
     "axios": "^0.15.2",
+    "classnames": "^2.2.5",
     "flexboxgrid": "^6.3.1",
     "js-yaml": "^3.7.0",
     "lodash": "^4.17.4",

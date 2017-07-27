@@ -6,3 +6,5 @@ dist/
 .sass-cache
 coverage
 doc/
+.idea/
+locales/

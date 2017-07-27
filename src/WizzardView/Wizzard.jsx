@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {getWizzard} from '../config/ConfigSelectors';
+import '../../css/sass/wizzzard.scss';
+
 
 export class Wizzard extends Component {
   constructor(props) {
@@ -28,37 +30,53 @@ export class Wizzard extends Component {
   render() {
     return (
       <div className="pt-card pt-elevation-3 detail">
-        <h2>Wizzard Gohan webUI Component.</h2>
+        {this.renderHeader()}
         <div>
-          {this.renderStep(this.state.step)}
+          {this.renderStep()}
         </div>
         {this.renderFooter()}
       </div>
     );
   }
 
-  renderStep = stepNumber => {
+  renderStep = () => {
     return <div>
-      {this.props.wizzard.default.content[stepNumber]}
+      {this.props.wizzard.default.content[this.state.step].text}
+    </div>;
+  };
+
+  renderHeader = () => {
+    return <div>
+      {
+         this.props.wizzard.default.content.map((item, i) => {
+           if (i !== this.state.step) {
+             return <button key={i} className="pt-button">
+               {item.header}
+             </button>;
+           }
+
+           return <button key={i} className="pt-button pt-intent-primary">
+             {item.header}
+           </button>;
+        })
+      }
     </div>;
   };
 
   renderFooter = () => {
-    return <div>
-      {this.state.step > 0 &&
-        <button className="pt-button pt-minimal pt-icon-arrow-left"
-          role="button"
-          onClick={this.prev}>
+    return <div className="wizzard-footer">
+      <button className="pt-button pt-minimal pt-icon-arrow-left"
+        role="button"
+        disabled={!this.state.step > 0}
+        onClick={this.prev}>
               Prev
             </button>
-      }
-      {this.state.step < this.props.wizzard.default.stepCount - 1 &&
-        <button className="pt-button pt-minimal pt-icon-arrow-right"
-          role="button"
-          onClick={this.next}>
-              Next
-            </button>
-      }
+      <button className="pt-button pt-minimal pt-icon-arrow-right"
+        role="button"
+        disabled={this.state.step >= this.props.wizzard.default.stepCount - 1}
+        onClick={this.next}>
+            Next
+      </button>
     </div>;
   }
 }

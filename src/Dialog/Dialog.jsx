@@ -152,10 +152,10 @@ if (process.env.NODE_ENV !== 'production') {
   };
 }
 
-const mapStateToProps = (state, {baseSchema}) => ({
-  schema: getSchema(state),
-  jsonUiSchema: getUiSchemaProperties(state, baseSchema.id),
-  jsonUiSchemaLogic: getUiSchemaLogic(state, baseSchema.id),
+const mapStateToProps = state => ({
+  schema: getSchema(state, 0),
+  jsonUiSchema: getUiSchemaProperties(state, getSchema(state, 0)),
+  jsonUiSchemaLogic: getUiSchemaLogic(state, getSchema(state, 0)),
   isLoading: getLoadingState(state),
 });
 

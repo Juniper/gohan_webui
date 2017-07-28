@@ -1,11 +1,11 @@
 import App from './../app/App';
 import Sample from '../SampleView';
-import Wizzard from '../WizzardView';
+import Wizard from '../WizardView';
 
 const components = Object.freeze({
     App,
     Sample,
-    Wizzard
+    Wizard
 });
 
 export default components;

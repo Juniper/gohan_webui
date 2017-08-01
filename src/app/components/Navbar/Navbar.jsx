@@ -1,16 +1,8 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import {connect} from 'react-redux';
-import isEqual from 'lodash/isEqual';
-import {logout, selectTenant} from './../../../auth/AuthActions';
-import {
-  getUserName,
-  getTenantName,
-  getTenants,
-} from './../../../auth/AuthSelectors';
 
+import BurgerButton from '../../../components/BurgerButton';
 import Button from '../../../components/Button';
-import NavContainer from './components/NavContainer';
 import NavbarGroup from './components/NavbarGroup';
 import TenantMenuItem from './components/TenantMenuItem';
 
@@ -23,38 +15,22 @@ import {
 } from '@blueprintjs/core';
 
 export class Navbar extends Component {
-  shouldComponentUpdate(nextProps) {
-    return !isEqual(this.props, nextProps);
-  }
-
-  handleMenuButtonClick = () => {
-    this.props.onToggleSidebar();
-  };
-
-  handleLogoutClick = () => {
-    this.props.logout();
-  };
-
-  handleChangeTenantClick = tenantName => {
-    this.props.selectTenant(tenantName);
-  };
-
   render() {
+
     const {
-      isSidebarOpen,
+      sidebarState,
       tenants,
       tenant,
       userName,
+      handleMenuButtonClick,
+      handleLogoutClick,
+      handleChangeTenantClick
     } = this.props;
 
     return (
-      <NavContainer>
+      <nav className="pt-navbar pt-fixed-top">
         <NavbarGroup isRight={false}>
-          <Button iconName={`menu-${isSidebarOpen ? 'closed' : 'open'}`}
-            isMinimal={true}
-            onClick={this.handleMenuButtonClick}
-            text={'Gohan WebUI'}
-          />
+          <BurgerButton onChange={handleMenuButtonClick} buttonState={sidebarState}/>
         </NavbarGroup>
         <NavbarGroup isRight={true}>
           <Popover content={
@@ -62,16 +38,16 @@ export class Navbar extends Component {
               {tenants.map(item => (
                 <TenantMenuItem key={item.id}
                   text={item.name}
-                  onClick={this.handleChangeTenantClick}
+                  onClick={handleChangeTenantClick}
                 />
               ))}
             </Menu>
           } interactionKind={PopoverInteractionKind.CLICK}
-            position={Position.BOTTOM}>
+                   position={Position.BOTTOM}>
             <Button isMinimal={true}
-              iconName={'projects'}
-              rightIconName="caret-down"
-              text={tenant}
+                    iconName={'projects'}
+                    rightIconName="caret-down"
+                    text={tenant}
             />
           </Popover>
 
@@ -79,20 +55,20 @@ export class Navbar extends Component {
             <Menu>
               <MenuItem text={'Log Out'}
                 iconName={'log-out'}
-                onClick={this.handleLogoutClick}
+                onClick={handleLogoutClick}
               />
             </Menu>
           }
-            interactionKind={PopoverInteractionKind.CLICK}
-            position={Position.BOTTOM_RIGHT}>
+                   interactionKind={PopoverInteractionKind.CLICK}
+                   position={Position.BOTTOM_RIGHT}>
             <Button isMinimal={true}
-              iconName={'user'}
-              rightIconName="caret-down"
-              text={userName}
+                    iconName={'user'}
+                    rightIconName="caret-down"
+                    text={userName}
             />
           </Popover>
         </NavbarGroup>
-      </NavContainer>
+      </nav>
     );
   }
 }
@@ -100,7 +76,7 @@ export class Navbar extends Component {
 Navbar.defaultProps = {
   tenants: [],
   onToggleSidebar: () => {},
-  isSidebarOpen: false,
+  sidebarState: 'open',
 };
 
 if (process.env.NODE_ENV !== 'production') {
@@ -109,18 +85,8 @@ if (process.env.NODE_ENV !== 'production') {
     tenant: PropTypes.string.isRequired,
     tenants: PropTypes.array,
     onToggleSidebar: PropTypes.func,
-    isSidebarOpen: PropTypes.bool,
+    sidebarState: PropTypes.string,
   };
 }
 
-
-export const mapStateToProps = state => ({
-  userName: getUserName(state),
-  tenant: getTenantName(state),
-  tenants: getTenants(state),
-});
-
-export default connect(mapStateToProps, {
-  logout,
-  selectTenant,
-})(Navbar);
+export default Navbar;

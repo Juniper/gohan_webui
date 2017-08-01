@@ -1,0 +1,237 @@
+{
+  "authUrl": "http://__HOST__:9091/v2.0",
+  "gohan": {
+    "schema": "/gohan/v0.1/schemas",
+    "url": "http://__HOST__:9091"
+  },
+  "sidebar": [
+    {
+      "title": "Settings",
+      "category": true,
+      "subMenu": [
+        {
+          "title": "Account Settings",
+          "icon": "fork",
+          "open": true,
+          "subMenu": [
+            {
+              "title": "First Account Setting",
+              "url": "/first_account_setting",
+              "icon": "chat"
+            },
+            {
+              "title": "Second Account Setting",
+              "icon": "chat",
+              "url": "/second_account_setting"
+            },
+            {
+              "title": "Third Account Setting",
+              "icon": "chat",
+              "url": "/third_account_setting"
+            }
+          ]
+        },
+        {
+          "title": "Billing",
+          "icon": "fork",
+          "subMenu": [
+            {
+              "title": "First Billing Link",
+              "icon": "chat",
+              "url": "/first_billing_link"
+            },
+            {
+              "title": "Second Billing Link",
+              "icon": "chat",
+              "url": "/second_billing_link"
+            },
+            {
+              "title": "Support",
+              "icon": "fork",
+              "subMenu": [
+                {
+                  "title": "First Support link",
+                  "url": "/second_support_link",
+                  "icon": "chat"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Security",
+          "icon": "fork",
+          "subMenu": [
+            {
+              "title": "First Security Link",
+              "icon": "chat",
+              "url": "/first_security_link"
+            },
+            {
+              "title": "Second Security Link",
+              "icon": "chat",
+              "url": "/second_security_link"
+            },
+            {
+              "title": "Third Security Link",
+              "icon": "chat",
+              "url": "/third_security_link"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Products",
+      "category": true,
+      "subMenu": [
+        {
+          "title": "Account",
+          "icon": "fork",
+          "subMenu": [
+            {
+              "title": "Sign Up",
+              "icon": "chat",
+              "url": "/sign_up"
+            },
+            {
+              "title": "Sign In",
+              "icon": "chat",
+              "url": "/sign_in"
+            },
+            {
+              "title": "Modify Account",
+              "icon": "chat",
+              "url": "/modify_account"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Support",
+      "category": true,
+      "subMenu": [
+        {
+          "title": "Wizard",
+          "icon": "drive-time",
+          "url": "/wizard"
+        }
+      ]
+
+    }
+  ],
+  "wizard": {
+    "default": {
+      "stepCount": 6,
+      "content": [
+        {
+          "header": {
+            "title": "Account Details",
+            "mainIcon": {"wrapperClassName": "header-icon", "iconClassName": "pt-icon-person"},
+            "helpIcon": {"wrapperClassName": "help-icon", "iconClassName": "pt-icon-help"}
+          },
+          "body": {
+            "type": "form",
+            "schemaId": "pet",
+            "action": {
+              "type": "submit"
+            }
+          },
+          "footer": {
+            "textNext": "Create a pet"
+          }
+        },
+        {
+
+          "header": {
+            "title": "Account",
+            "mainIcon": {"wrapperClassName": "header-icon", "iconClassName": "pt-icon-person"},
+            "helpIcon": {"wrapperClassName": "help-icon", "iconClassName": "pt-icon-help"}
+          },
+          "body": {
+            "type": "text",
+            "text": "Please receive SMS to verify your phone"
+          },
+          "footer": {
+            "textNext": "Agree",
+            "textPrev": "Review"
+          }
+        },
+        {
+          "body": {
+            "type":"text",
+            "text": "Personal Information"
+          },
+          "header": {
+            "title": "Account Details",
+            "mainIcon": {"wrapperClassName": "header-icon", "iconClassName": "pt-icon-info-sign"},
+            "helpIcon": {"wrapperClassName": "help-icon", "iconClassName": "pt-icon-help"}
+          }
+        },
+        {
+          "header": {
+            "title": "Plan Selection",
+            "mainIcon": {"wrapperClassName": "header-icon", "iconClassName": "pt-icon-insert"},
+            "helpIcon": {"wrapperClassName": "help-icon", "iconClassName": "pt-icon-help"}
+          },
+          "body": {
+            "type": "form",
+            "schemaId": "order",
+            "action": {
+              "type": "submit"
+            }
+          }
+        },
+        {
+          "body": {
+            "type":"text",
+            "text": "Pay us money!"
+          },
+          "header": {
+            "title": "Credit Card Information",
+            "mainIcon": {"wrapperClassName": "header-icon", "iconClassName": "pt-icon-dollar"},
+            "helpIcon": {"wrapperClassName": "help-icon", "iconClassName": "pt-icon-help"}
+          }
+        },
+        {
+          "header": {
+            "title": "Finish",
+            "mainIcon": {"wrapperClassName": "header-icon", "iconClassName": "pt-icon-tick"},
+            "helpIcon": {"wrapperClassName": "help-icon", "iconClassName": "pt-icon-help"}
+          },
+          "body": {
+            "type": "review"
+          }
+        }
+      ]
+    }
+  },
+  "routes": [
+    {
+      "path": "",
+      "viewClass": "Sample",
+      "name": "Sample"
+    },
+    {
+      "path": "wizard",
+      "viewClass": "Wizard",
+      "name": "Wizard",
+      "params": {
+        "a": 1
+      }
+    }
+  ],
+  "errorMessages": {
+    "tokenExpire": "The token is expired. Please re-login."
+  },
+  "addingRelationDialog": [
+    "Pet"
+  ],
+  "pageLimit": 5,
+  "loginRequestTimeout": 30000,
+  "polling": true
+}
+
+
+

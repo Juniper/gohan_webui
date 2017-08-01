@@ -18,6 +18,8 @@ $brand-warning:         #FF7518 !default;
 $brand-danger:          #FF0039 !default;
 
 
+
+
 /*
  * Base structure
  */
@@ -97,12 +99,10 @@ body {
 .sidebar {
   position: fixed;
   top: 50px;
-  height: 100%;
   width: 260px;
   float: left;
   overflow-x: hidden;
   background-color: #fff;
-  padding-top: 10px;
   margin-left: 0;
   transition: margin-left 250ms ease-in;
 

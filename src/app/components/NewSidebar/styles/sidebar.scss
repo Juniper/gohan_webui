@@ -1,0 +1,114 @@
+$sidebar-open-width:    260px;
+$sidebar-minimal-width:    35px;
+
+.sidebar{
+  width: 0;
+  min-width: 0;
+  transition: all 250ms ease-in;
+  bottom: 0;
+
+  .sidebar-content{
+    position: absolute;
+    bottom: 55px;
+    top: 10px;
+    width: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    .category{
+      border-bottom: 1px solid #d8d8d8;
+      text-transform: uppercase;
+      font-size: 14px;
+      padding: 10px 10px 4px 10px;
+      color: #666;
+    }
+
+    .pt-menu{
+      padding: 0;
+    }
+
+    .sidebar-search {
+      padding: 0 10px;
+      border-bottom: 1px solid #d8d8d8;
+      margin-bottom: 20px;
+
+      > label{
+        display: flex;
+        align-items: center;
+        margin-bottom: 0;
+
+        label.search-label{
+          cursor: pointer;
+          display: flex;
+          flex:1;
+          line-height: 28px;
+          input{
+            box-shadow: none;
+            margin-top: 0;
+          }
+        }
+      }
+
+      .clear-search{
+        cursor: pointer;
+      }
+    }
+  }
+
+  &.sidebar-minimal{
+    width: $sidebar-minimal-width;
+    min-width: $sidebar-minimal-width;
+    .col-exp-sidebar{
+      left: 2px;
+      transform: rotate(180deg);
+    }
+
+    .category{
+      font-size: 0;
+      height: 0;
+      padding: 0;
+      padding-top: 17px;
+      margin-bottom: 17px;
+    }
+  }
+
+  &.sidebar-open{
+    width: $sidebar-open-width;
+    min-width: $sidebar-open-width;
+  }
+
+  &.sidebar-close{
+    .col-exp-sidebar{
+      left: -25px;
+    }
+  }
+
+  .col-exp-sidebar{
+    left: $sidebar-open-width - 30px;
+    position: fixed;
+    bottom: 10px;
+    font-size: 30px;
+    transition: all 250ms ease-in;
+    cursor: pointer;
+  }
+
+  .pt-menu .Collapsible__contentOuter   .Collapsible__contentOuter   {
+    padding-left: 30px;
+  }
+}
+
+.sidebar ~ .view-content{
+  padding-left: 0;
+}
+
+.sidebar.sidebar-minimal ~ .view-content{
+  padding-left: $sidebar-minimal-width;
+}
+
+.sidebar.sidebar-open ~ .view-content{
+  padding-left: $sidebar-open-width;
+}
+
+
+
+

@@ -290,6 +290,7 @@ function deleteSuccess(plural) {
     dispatch({type: DELETE_SUCCESS});
   };
 }
+
 function deleteError(error) {
   if (error.response) {
     switch (error.response.status) {
@@ -308,6 +309,16 @@ function deleteError(error) {
   return dispatch => {
     dispatch({type: DELETE_FAILURE, error});
   };
+}
+
+function previousPageIfEmptyAfterDeletion(numberDeleted, state, plural, dispatch) {
+  const {totalCount} = state.tableReducer[plural];
+  const {offset} = state.tableReducer[plural];
+  const {pageLimit} = state.configReducer;
+
+  if (offset >= Number(totalCount) - numberDeleted && offset >= pageLimit) {
+    dispatch({type: UPDATE_OFFSET, data: {plural, offset: offset - pageLimit}});
+  }
 }
 
 /**
@@ -334,6 +345,8 @@ export function deleteData(id, plural) {
       const {status} = response;
 
       if (status === 204) {
+        previousPageIfEmptyAfterDeletion(1, state, plural, dispatch);
+
         dispatch(deleteSuccess(plural));
       } else {
         dispatch(deleteError(response));
@@ -376,6 +389,7 @@ export function deleteMultipleResources(ids, plural) {
 
     axios.all(requests)
       .then(() => {
+        previousPageIfEmptyAfterDeletion(ids.length, state, plural, dispatch);
         dispatch(deleteMultipleResourcesSuccess(plural));
       })
       .catch(error => {

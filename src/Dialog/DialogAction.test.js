@@ -187,13 +187,11 @@ describe('DialogActions ', () => {
       headers.headers['X-Auth-Token'].should.equal('tokenId');
 
       return Promise.resolve({
-        data: {
-          pets: [
-            {id: 'a1', name: 'Sample name 1', description: 'test description'},
-            {id: 'b2', name: 'Sample name 2', description: 'test description'},
-            {id: 'c3', name: 'Sample name 3', description: 'test description'}
-          ]
-        }
+        data: [
+          {id: 'a1', name: 'Sample name 1', description: 'test description'},
+          {id: 'b2', name: 'Sample name 2', description: 'test description'},
+          {id: 'c3', name: 'Sample name 3', description: 'test description'}
+        ]
       });
     });
     await store.dispatch(actions.prepareSchema(schema, 'create'));

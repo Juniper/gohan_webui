@@ -17,3 +17,12 @@ export const getSidebar = createSelector(
     return [];
   }
 );
+
+const wizard = state => state.configReducer.wizard;
+
+export const getWizard = createSelector(
+    [wizard],
+    wizard => {
+        return wizard;
+    }
+)

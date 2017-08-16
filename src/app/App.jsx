@@ -3,49 +3,22 @@ import PropTypes from 'prop-types';
 import {FocusStyleManager} from '@blueprintjs/core';
 
 import Navbar from './components/Navbar';
-import Sidebar from './components/Sidebar';
+import Sidebar from './components/NewSidebar';
 import ErrorToaster from './../error/ErrorToaster';
 
 FocusStyleManager.onlyShowFocusOnTabs();
 
 export default class App extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      openUserMenu: false,
-      openSidebar: true,
-      contentClassNames: ''
-    };
-  }
-
-  handleToggleSidebar = () => {
-    if (this.state.openSidebar) {
-      this.setState({
-        openSidebar: false,
-        contentClassNames: 'sidebar-hidden'
-      });
-    } else {
-      this.setState({
-        openSidebar: true,
-        contentClassNames: ''
-      });
-    }
-  };
 
   render() {
-    const {
-      children
-    } = this.props;
+    const { children } = this.props;
 
     return (
       <div>
-        <Navbar onToggleSidebar={this.handleToggleSidebar}
-          isSidebarOpen={this.state.openSidebar}
-        />
-        <Sidebar open={this.state.openSidebar}/>
+        <Navbar/>
+        <Sidebar/>
         <ErrorToaster/>
-        <div className={`view-content ${this.state.contentClassNames}`}>
+        <div className="view-content">
           {children}
         </div>
       </div>

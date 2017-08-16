@@ -9,9 +9,14 @@ function fetchSuccess(data) {
 
 function fetchError(data) {
   return dispatch => {
-    const error = data.data;
+    if (typeof data === 'object') {
+        const error = data.data;
 
-    dispatch({type: FETCH_ERROR, error});
+        dispatch({type: FETCH_ERROR, error});
+    }
+    else {
+      dispatch({type: FETCH_ERROR});
+    }
   };
 }
 

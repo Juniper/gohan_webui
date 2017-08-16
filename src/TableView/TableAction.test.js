@@ -167,11 +167,13 @@ describe('TableActions ', () => {
             totalCount: 1
           },
           data: {
-            test: [
-              {
-                name: 'SampleName'
-              }
-            ]
+            test: {
+              test: [
+                {
+                  name: 'SampleName'
+                }
+              ]
+            }
           }
         }
       ]);
@@ -289,11 +291,13 @@ describe('TableActions ', () => {
             totalCount: 1
           },
           data: {
-            test: [
-              {
-                name: 'SampleName'
-              }
-            ]
+            test: {
+              test: [
+                {
+                  name: 'SampleName'
+                }
+              ]
+            }
           }
         }
       ]);
@@ -421,11 +425,13 @@ describe('TableActions ', () => {
             totalCount: 1
           },
           data: {
-            test: [
-              {
-                name: 'SampleName'
-              }
-            ]
+            test: {
+              test: [
+                {
+                  name: 'SampleName'
+                }
+              ]
+            }
           }
         }
       ]);
@@ -507,11 +513,13 @@ describe('TableActions ', () => {
             totalCount: 1
           },
           data: {
-            test: [
-              {
-                name: 'SampleName'
-              }
-            ]
+            test: {
+              test: [
+                {
+                  name: 'SampleName'
+                }
+              ]
+            }
           }
         }
       ]);

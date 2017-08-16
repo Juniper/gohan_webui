@@ -44,7 +44,9 @@ describe('DetailEpics', () => {
             a: {
               type: actionTypes.FETCH_SUCCESS,
               data: {
-                name: 'foo',
+                test: {
+                  name: 'foo',
+                }
               },
             },
           }

@@ -10,7 +10,7 @@ class ErrorToaster extends Component {
 
   handleDismissClick = () => {
     this.props.resetErrorMessage();
-  }
+  };
 
   componentWillReceiveProps(nextProps) {
     const message = nextProps.errorMessage;

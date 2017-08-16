@@ -1,0 +1,127 @@
+{
+    "authUrl": "http://localhost:9091/v2.0",
+    "gohan": {
+        "schema": "/gohan/v0.1/schemas",
+        "url": "http://localhost:9091"
+    },
+    "sidebar": [
+        {
+            "path": "",
+            "title": "Sample"
+        },
+        {
+            "path": "wizard",
+            "title": "Wizard"
+        }
+    ],
+    "routes": [
+        {
+            "path": "",
+            "viewClass": "Sample",
+            "name": "Sample"
+        },
+        {
+            "path": "wizard",
+            "viewClass": "Wizard",
+            "name": "Wizard",
+            "params": {
+                "a": 1
+            }
+        }
+    ],
+    "errorMessages": {
+        "tokenExpire": "The token is expired. Please re-login."
+    },
+    "addingRelationDialog": [
+        "Pet"
+    ],
+    "pageLimit": 5,
+    "loginRequestTimeout": 30000,
+    "polling": true,
+    "wizard": {
+        "default": {
+            "stepCount": 6,
+            "content": [
+                {
+                    "header": {
+                        "title": "Account Details",
+                        "mainIcon": {"wrapperClassName": "header-icon", "iconClassName": "pt-icon-person"},
+                        "helpIcon": {"wrapperClassName": "help-icon", "iconClassName": "pt-icon-help"}
+                    },
+                    "body": {
+                        "type": "form",
+                        "schemaId": "pet",
+                        "action": {
+                            "type": "submit"
+                        }
+                    },
+                    "footer": {
+                        "textNext": "Create a pet"
+                    }
+                },
+                {
+
+                    "header": {
+                        "title": "Account",
+                        "mainIcon": {"wrapperClassName": "header-icon", "iconClassName": "pt-icon-person"},
+                        "helpIcon": {"wrapperClassName": "help-icon", "iconClassName": "pt-icon-help"}
+                    },
+                    "body": {
+                        "type": "text",
+                        "text": "Please receive SMS to verify your phone"
+                    },
+                    "footer": {
+                        "textNext": "Agree",
+                        "textPrev": "Review"
+                    }
+                },
+                {
+                    "body": {
+                        "type":"text",
+                        "text": "Personal Information"
+                    },
+                    "header": {
+                        "title": "Account Details",
+                        "mainIcon": {"wrapperClassName": "header-icon", "iconClassName": "pt-icon-info-sign"},
+                        "helpIcon": {"wrapperClassName": "help-icon", "iconClassName": "pt-icon-help"}
+                    }
+                },
+                {
+                    "header": {
+                        "title": "Plan Selection",
+                        "mainIcon": {"wrapperClassName": "header-icon", "iconClassName": "pt-icon-insert"},
+                        "helpIcon": {"wrapperClassName": "help-icon", "iconClassName": "pt-icon-help"}
+                    },
+                    "body": {
+                        "type": "form",
+                        "schemaId": "order",
+                        "action": {
+                            "type": "submit"
+                        }
+                    }
+                },
+                {
+                    "body": {
+                        "type":"text",
+                        "text": "Pay us money!"
+                    },
+                    "header": {
+                        "title": "Credit Card Information",
+                        "mainIcon": {"wrapperClassName": "header-icon", "iconClassName": "pt-icon-dollar"},
+                        "helpIcon": {"wrapperClassName": "help-icon", "iconClassName": "pt-icon-help"}
+                    }
+                },
+                {
+                    "header": {
+                        "title": "Finish",
+                        "mainIcon": {"wrapperClassName": "header-icon", "iconClassName": "pt-icon-tick"},
+                        "helpIcon": {"wrapperClassName": "help-icon", "iconClassName": "pt-icon-help"}
+                    },
+                    "body": {
+                        "type": "review"
+                    }
+                }
+            ]
+        }
+    }
+}

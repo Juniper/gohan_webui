@@ -1,4 +1,4 @@
-import {createSelector} from 'reselect';
+import {createSelector, createStructuredSelector} from 'reselect';
 
 const sidebar = state => state.configReducer.sidebar;
 
@@ -17,3 +17,16 @@ export const getSidebar = createSelector(
     return [];
   }
 );
+
+const wizard = state => state.configReducer.wizard;
+
+export const getWizard = createSelector(
+    [wizard],
+    wizard => {
+        return wizard;
+    }
+);
+
+export const wizardSelector = createStructuredSelector({
+    wizard: getWizard,
+});

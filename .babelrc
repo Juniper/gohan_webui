@@ -1,25 +1,19 @@
 {
   "presets": [
     "flow",
-    "es2016",
+    ["env", {
+      "targets": {
+        "browsers": ["> 1%"]
+      },
+      "modules": false
+    }],
     "react"
   ],
   "plugins": [
     "transform-object-rest-spread",
-    "transform-class-properties",
-    "transform-regenerator",
-    "transform-export-extensions",
-    "transform-strict-mode",
-    "transform-object-rest-spread",
-    "syntax-async-functions",
-    "syntax-trailing-function-commas"
+    "transform-class-properties"
   ],
   "env": {
-    "lib": {
-      "presets": [
-        "es2015"
-      ]
-    },
     "dev-server": {
       "presets": [
         "react-hmre"
@@ -31,13 +25,7 @@
       ],
       "plugins": [
         "transform-object-rest-spread",
-        "transform-class-properties",
-        "transform-regenerator",
-        "transform-export-extensions",
-        "transform-strict-mode",
-        "transform-object-rest-spread",
-        "syntax-async-functions",
-        "syntax-trailing-function-commas"
+        "transform-class-properties"
       ]
     }
   }
